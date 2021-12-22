@@ -12,22 +12,23 @@ const distanceInput = document.querySelector("#distance");
 const completeButton = document.querySelector("button.complete");
 const addButton = document.querySelector("button.add-another");
 const toast = document.querySelector("#toast");
-const newWorkout = document.querySelector(".new-workout")
+const newWorkout = document.querySelector(".new-workout");
+const API = require("./api");
 
 let workoutType = null;
+
 let shouldNavigateAway = false;
 
 async function initExercise() {
   let workout;
 
   if (location.search.split("=")[1] === undefined) {
-    workout = await API.createWorkout()
-    console.log(workout)
+    workout = await API.createWorkout();
+    console.log(workout);
   }
   if (workout) {
     location.search = "?id=" + workout._id;
   }
-
 }
 
 initExercise();
@@ -153,4 +154,4 @@ toast.addEventListener("animationend", handleToastAnimationEnd);
 
 document
   .querySelectorAll("input")
-  .forEach(element => element.addEventListener("input", validateInputs));
+  .forEach((element) => element.addEventListener("input", validateInputs));
