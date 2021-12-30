@@ -48,10 +48,15 @@ router.get("/workouts/range", async (req, res) => {
       },
     },
     // {
-    //   $group: {
-    //     totalDuration: { $sum: "exercises.$.duration" },
-    //     totalweight: { $sum: "exercises.$.weight" },
-    //   },
+    // $group: {
+    // _id: {
+    //   year: { $year: "$day" },
+    //   month: { $month: "$day" },
+    //   day: { $dayOfMonth: "$day" },
+    // },
+    //   totalDuration: { $sum: "exercises.$.duration" },
+    //   totalweight: { $sum: "exercises.$.weight" },
+    // },
     // },
   ])
     .sort({ _id: -1 })
