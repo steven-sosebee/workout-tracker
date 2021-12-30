@@ -1,4 +1,4 @@
-import { getLastWorkout } from "./api";
+// import { getLastWorkout } from "./api";
 
 async function initWorkout() {
   const lastWorkout = await getLastWorkout();
