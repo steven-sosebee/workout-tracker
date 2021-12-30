@@ -12,8 +12,8 @@ router.put("/workouts/:id", async (req, res) => {
   res.status(200).json(workoutData);
 });
 
-router.get("/workouts", (req, res) => {
-  Workout.find({})
+router.get("/workouts", async (req, res) => {
+  await Workout.find({})
     .sort({ day: -1 })
     .then((dbTransaction) => {
       res.json(dbTransaction);
@@ -23,8 +23,8 @@ router.get("/workouts", (req, res) => {
     });
 });
 
-router.post("/workouts", (req, res) => {
-  Workout.create({
+router.post("/workouts", async (req, res) => {
+  await Workout.create({
     day: Date.now(),
   })
     .then((dbTransaction) => {
@@ -38,7 +38,7 @@ router.get("/workouts/range", async (req, res) => {
   let range = new Date();
   range.setDate(range.getDate() - 8);
   console.log(`The date range is greater than ${range}`);
-  Workout.aggregate([
+  await Workout.aggregate([
     { $match: { day: { $gte: range } } },
     {
       $addFields: {
