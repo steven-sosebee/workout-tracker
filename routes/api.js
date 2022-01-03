@@ -10,6 +10,8 @@ router.put("/workouts/:id", (req, res) => {
       res.status(200).json(data);
     })
     .catch((err) => {
+      console.log("Error in api call...");
+      console.log(err);
       res.status(400).json(err);
     });
 });
@@ -21,6 +23,8 @@ router.get("/workouts", (req, res) => {
       res.json(dbTransaction);
     })
     .catch((err) => {
+      console.log("Error in api call...");
+      console.log(err);
       res.status(400).json(err);
     });
 });
@@ -33,6 +37,8 @@ router.post("/workouts", (req, res) => {
       res.json(dbTransaction);
     })
     .catch((err) => {
+      console.log("Error in api call...");
+      console.log(err);
       res.status(400).json(err);
     });
 });
@@ -69,6 +75,8 @@ router.get("/workouts/range", (req, res) => {
       res.status(200).json(dbTransaction);
     })
     .catch((err) => {
+      console.log("Error in api call...");
+      console.log(err);
       res.status(400).json(err);
     });
   // res.status(200).json(workoutData);
